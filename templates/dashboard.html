@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% block body %}
+<section class="welcome"><div><p class="eyebrow">YOUR CAREER WORKSPACE</p><h1>Welcome to Career Navigator</h1><p class="note">Choose a feature to get started. Each feature opens separately, so you only see the tool you selected.</p></div><div class="welcome-mark">🧭</div></section>
+<h2 class="section-heading">Explore features</h2>
+<div class="feature-grid">
+<a class="feature-card" href="{{ url_for('career_analysis') }}"><span class="feature-icon blue">◎</span><h3>Career Analysis</h3><p>Upload your PDF resume and enter your skills to get career recommendations, skill gaps, job readiness, resume quality, and a learning roadmap.</p><span class="feature-action">Open Career Analysis →</span></a>
+<a class="feature-card" href="{{ url_for('job_matcher') }}"><span class="feature-icon purple">⌕</span><h3>Job Description Skill Matcher</h3><p>Paste a job description to compare its technical requirements with your skills and identify matching and missing skills.</p><span class="feature-action">Open Skill Matcher →</span></a>
+<a class="feature-card" href="{{ url_for('projects') }}"><span class="feature-icon teal">✦</span><h3>Project Recommendation System</h3><p>Find practical beginner, intermediate, and advanced projects based on your selected career and skills.</p><span class="feature-action">Explore Projects →</span></a>
+</div>
+<div class="dashboard-tip"><strong>How to use:</strong> Select any feature from the sidebar or these cards. Only that feature will open in the main workspace.</div>
+{% endblock %}

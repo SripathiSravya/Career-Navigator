@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Career Navigator</title><link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"></head>
+<body><div class="app-shell">
+<aside class="sidebar"><a class="brand" href="{{ url_for('new_analysis') }}"><span class="brand-icon">🧭</span><span>Career<br>Navigator</span></a>
+<div class="nav-label">CAREER DASHBOARD</div><nav class="side-nav">
+{% if session.get('profile_id') %}
+<a href="{{ url_for('analyze_dashboard') }}#overview" class="feature-nav active" data-target="overview">▦ <span>Dashboard Overview</span></a>
+<a href="{{ url_for('analyze_dashboard') }}#careers" class="feature-nav" data-target="careers">◎ <span>Career Recommendations</span></a>
+<a href="{{ url_for('analyze_dashboard') }}#gap" class="feature-nav" data-target="gap">⌁ <span>Skill Gap Analysis</span></a>
+<a href="{{ url_for('analyze_dashboard') }}#resume" class="feature-nav" data-target="resume">▤ <span>Resume Quality</span></a>
+<a href="{{ url_for('analyze_dashboard') }}#ready" class="feature-nav" data-target="ready">◷ <span>Job Readiness</span></a>
+<a href="{{ url_for('analyze_dashboard') }}#roadmap" class="feature-nav" data-target="roadmap">▣ <span>Learning Roadmap</span></a>
+<a href="{{ url_for('analyze_dashboard') }}#roles" class="feature-nav" data-target="roles">▤ <span>Recommended Job Roles</span></a>
+<a href="{{ url_for('analyze_dashboard') }}#guide" class="feature-nav" data-target="guide">✧ <span>Personalized Guidance</span></a>
+<div class="nav-label additional-label">ADDITIONAL TOOLS</div>
+<a href="{{ url_for('job_matcher') }}" class="{% if request.endpoint == 'job_matcher' %}active{% endif %}">⌕ <span>Job Description Matcher</span></a>
+<a href="{{ url_for('projects') }}" class="{% if request.endpoint == 'projects' %}active{% endif %}">✦ <span>Project Recommendations</span></a>
+<a href="{{ url_for('new_analysis') }}">＋ <span>New Career Analysis</span></a>
+{% else %}
+<div class="nav-label">ADDITIONAL TOOLS</div>
+<a href="{{ url_for('job_matcher') }}" class="{% if request.endpoint == 'job_matcher' %}active{% endif %}">⌕ <span>Job Description Matcher</span></a>
+<a href="{{ url_for('projects') }}" class="{% if request.endpoint == 'projects' %}active{% endif %}">✦ <span>Project Recommendations</span></a>
+<a href="{{ url_for('new_analysis') }}">＋ <span>New Career Analysis</span></a>
+{% endif %}
+</nav><div class="sidebar-foot">Personalized career guidance<br><small>Build skills. Plan your future.</small></div></aside>
+<main class="main-panel"><header class="page-top"><span>Career Navigation Workspace</span><span class="top-pill">Career Navigator</span></header><div class="page-content">{% block body %}{% endblock %}</div></main>
+</div><script src="{{ url_for('static', filename='js/script.js') }}"></script></body></html>
